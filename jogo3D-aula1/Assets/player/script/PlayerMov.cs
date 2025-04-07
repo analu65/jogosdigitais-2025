@@ -20,6 +20,7 @@ public class PlayerMov : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class PlayerMov : MonoBehaviour
             {
                 MoveDirection = Vector3.forward * Speed;
                 MoveDirection = transform.TransformDirection(MoveDirection);
+                anim.SetInteger("transition", 1);
             }
             if (Input.GetKeyUp(KeyCode.W))
             {
